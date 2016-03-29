@@ -1,0 +1,7 @@
+---
+
+- include: consul_container.yml
+
+#- include: config.yml
+
+#- include: service.yml

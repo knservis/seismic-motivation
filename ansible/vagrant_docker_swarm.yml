@@ -20,3 +20,4 @@
     # - role: franklinkim.consul
     - role: docker
     # - role: docker_swarm
+    - role: consul
