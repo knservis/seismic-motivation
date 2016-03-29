@@ -8,7 +8,7 @@
     state: restarted
 
 - name: reload systemd
-  sudo: yes
+  become: true
   command: systemctl daemon-reload
 
 - name: restart swarm client

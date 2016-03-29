@@ -1,0 +1,8 @@
+---
+
+- hosts: all
+  become: false
+  remote_user: "{{ user }}"
+  roles:
+    - role: docker
+    - role: swarm-master

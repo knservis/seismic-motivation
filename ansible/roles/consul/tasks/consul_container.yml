@@ -1,0 +1,11 @@
+---
+
+- name: Run consul container (discovery backend)
+  docker: 
+    ports:
+      - "{{consul_port}}:{{consul_port}}"
+    restart_policy: always
+    state: started
+    image: progrium/consul
+    name: consul
+    command: "-server -bootstrap -advertise={{ansible_eth1.ipv4.address}}"

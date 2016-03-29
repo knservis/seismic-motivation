@@ -1,6 +1,6 @@
 ---
 
-- name: Update yum and get docker-engine
+- name: Update yum cache and get docker-engine
   become: true
   yum:
     update_cache: yes

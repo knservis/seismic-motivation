@@ -1,0 +1,13 @@
+---
+- name: Wait for consul
+  wait_for:
+    host: "{{ consul_ip }}"
+    port: "{{ consul_port }}"
+    
+- name: Run consul client
+  docker: 
+    restart_policy: always
+    state: started
+    image: swarm
+    name: swarm-client
+    command: "join --advertise={{ docker_host_ip }}:{{docker_port}} consul://{{ consul_ip }}:{{ consul_port }}"

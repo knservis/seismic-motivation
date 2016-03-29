@@ -1,0 +1,10 @@
+---
+
+- hosts: vagrant_dockerconsul
+  become: true
+  become_method: sudo
+  remote_user: "{{ user }}"
+
+  roles:
+    - role: docker
+    - role: consul

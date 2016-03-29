@@ -1,0 +1,13 @@
+---
+
+- name: enable docker
+  become: true
+  service:
+    name: docker
+    state: restarted
+    enabled: true
+
+- name: Wait for service to be available
+  wait_for:
+    host: "{{docker_host_ip}}"
+    port: "{{docker_port}}"

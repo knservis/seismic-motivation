@@ -2,5 +2,6 @@
 
 use_tls: False
 docker_port: 2375
+docker_host_ip: "{{ansible_eth1.ipv4.address}}"
 docker_swarm_tags:
   - 'none=none'

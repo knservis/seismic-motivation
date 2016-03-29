@@ -14,4 +14,4 @@ OPTIONS="{% if dns_servers is defined %}{% for server in dns_servers %}--dns={{ 
             {{ opt }} \
             {% endfor %}{% endif %}
             -H unix:///var/run/docker.sock \
-            -H tcp://0.0.0.0:{{ docker_port }}"
+            -H tcp://{{ docker_host_ip }}:{{ docker_port }}"
