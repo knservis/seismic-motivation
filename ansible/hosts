@@ -1,0 +1,11 @@
+[local]
+localhost
+
+[vagrant_dockerhosts]
+dockerhost01 ansible_ssh_private_key_file=../.vagrant/machines/dockerhost01/virtualbox/private_key
+dockerhost02 ansible_ssh_private_key_file=../.vagrant/machines/dockerhost02/virtualbox/private_key
+dockerhost03 ansible_ssh_private_key_file=../.vagrant/machines/dockerhost03/virtualbox/private_key
+
+[vagrant_dockerswarm]
+dockerswarm01 ansible_ssh_private_key_file=../.vagrant/machines/dockerswarm01/virtualbox/private_key
+

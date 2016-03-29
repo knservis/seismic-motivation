@@ -1,0 +1,45 @@
+---
+
+- name: Create options file
+  become: true
+  template: 
+    src: docker.default.j2
+    dest: /etc/sysconfig/docker
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - enable docker
+    - reload systemd
+    - restart docker
+
+- name: Create directory for unit drop-in
+  become: true
+  file: 
+    state: directory
+    path: /etc/systemd/system/docker.service.d
+
+- name: Create systemd unit drop-in file
+  become: true
+  copy:
+      src: docker.conf
+      dest: /etc/systemd/system/docker.service.d/docker.conf
+      owner: root 
+      group: root
+      mode: 0644
+  notify:   
+    - enable docker
+    - reload systemd
+    - restart docker
+
+- name: Install SSL Certs
+  become: true
+  copy: 
+    src: tls
+    dest: /etc/pki
+    owner: root
+    group: root
+    mode: 0600
+  notify:
+    - restart docker
+  when: use_tls == True

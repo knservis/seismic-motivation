@@ -1,0 +1,8 @@
+---
+
+- name: Update yum and get docker-engine
+  become: true
+  yum:
+    update_cache: yes
+    name: docker-engine
+    state: present

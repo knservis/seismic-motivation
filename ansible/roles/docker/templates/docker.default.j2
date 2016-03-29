@@ -1,0 +1,17 @@
+# Managed by Ansible
+# Docker Upstart and SysVinit configuration file
+
+# Use OPTIONS to modify the daemon startup options.
+OPTIONS="{% if dns_servers is defined %}{% for server in dns_servers %}--dns={{ server }} {% endfor %} {% endif %} \
+            {% for tag in docker_swarm_tags %} --label {{ tag }}{% endfor %} \
+            {% if use_tls %}
+            --tlsverify \
+            --tlscacert=/etc/pki/tls/ca.pem \
+            --tlscert=/etc/pki/tls/{{ ansible_hostname }}-cert.pem \
+            --tlskey=/etc/pki/tls/{{ ansible_hostname }}-key.pem \
+            {%  endif %}
+            {% if docker_opts is defined %}{%  for opt in docker_opts %}
+            {{ opt }} \
+            {% endfor %}{% endif %}
+            -H unix:///var/run/docker.sock \
+            -H tcp://0.0.0.0:{{ docker_port }}"

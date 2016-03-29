@@ -1,0 +1,43 @@
+---
+
+- name: restart docker
+  become: true
+  become_method: sudo
+  service: 
+    name: docker
+    state: restarted
+
+- name: reload systemd
+  sudo: yes
+  command: systemctl daemon-reload
+
+- name: restart swarm client
+  become: true
+  become_method: sudo
+  service: 
+    name: swarm_client
+    state: restarted
+
+- name: restart registrator
+  become: true
+  become_method: sudo
+  service: 
+    name: registrator
+    state: restarted
+
+- name: enable docker
+  become: true
+  become_method: sudo
+  service:
+    name: docker
+    state: started
+    enabled: true
+
+- name: disable docker
+  become: true
+  become_method: sudo
+  service: 
+    name: docker
+    state: stopped
+    enabled: false
+
