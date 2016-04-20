@@ -1,0 +1,13 @@
+---
+
+user: vagrant
+consul_host: dockerswarm01
+
+dns_servers:
+  - 8.8.8.8
+  - 8.8.4.4
+
+docker_images:
+  - ubuntu
+  - nginx
+
