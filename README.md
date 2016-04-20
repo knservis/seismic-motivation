@@ -35,5 +35,5 @@ ansible 2.0.1.0
 
 ### Running
 ```
-$ docker up
+$ vagrant up
 ```
