@@ -1,6 +1,17 @@
 # seismic-motivation
 Running driven and ES on vagrant. 
 
+This project aims to be a complete demonstrator of how you would run driven [http://driven.io] in production. 
+
+Everything is running on vagrant a docker.
+
+It is supposed to run one vagrant VM which will run docker and the consul container.
+
+The rest of the vagrant VMs are participating in the swarm and they are running the following containers: 
+- hipache as reverse proxy
+- driven app containers
+- elastic search containers
+
 ### Prerequisits
 ####VirtualBox 5.0.x
 
