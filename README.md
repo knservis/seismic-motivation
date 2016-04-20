@@ -1,4 +1,6 @@
 # seismic-motivation
+
+[![Join the chat at https://gitter.im/knservis/seismic-motivation](https://badges.gitter.im/knservis/seismic-motivation.svg)](https://gitter.im/knservis/seismic-motivation?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Running driven and ES on vagrant. 
 
 This project aims to be a complete demonstrator of how you would run driven [http://driven.io] in production. 
