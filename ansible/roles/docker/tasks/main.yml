@@ -8,7 +8,7 @@
 
 - include: user.yml
 
-# - include: service.yml
+- include: service.yml
 
 # - { include: swarm_consul_client.yml, when: swarm_discovery is defined and swarm_discovery == 'consul' }
 

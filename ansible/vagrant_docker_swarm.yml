@@ -16,8 +16,5 @@
     swarm_discovery_string: "consul://{{ consul_host }}/swarm"
 
   roles:
-    # - role: base
-    # - role: franklinkim.consul
     - role: docker
-    # - role: docker_swarm
     - role: consul

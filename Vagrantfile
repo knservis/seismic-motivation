@@ -24,20 +24,20 @@ Vagrant.configure(2) do |vagrant|
 
   # Machine Configuration
   # Docker Hosts
-  # (1..DOCKER_HOSTS).each do |i|
-  #   docker_host = i.to_s.rjust(2, "0")
-  #   vagrant.vm.define "dockerhost#{docker_host}" do |config|
-  #     config.vm.hostname = "dockerhost#{docker_host}"
-  #     config.vm.network "private_network", ip: "10.100.199.2#{docker_host}"
-  #     config.vm.provision :hosts
-  #     config.vm.provision :ansible do |ansible|
-  #       ansible.playbook = 'ansible/vagrant_docker_host.yml'
-  #       ansible.groups   = {'vagrant_dockerhosts' => ["dockerhost#{docker_host}"], 'local' => ['localhost']}
-  #       ansible.raw_arguments = '--timeout=30'
-  #       ansible.host_key_checking = false
-  #     end
-  #   end
-  # end
+  (1..DOCKER_HOSTS).each do |i|
+    docker_host = i.to_s.rjust(2, "0")
+    vagrant.vm.define "dockerhost#{docker_host}" do |config|
+      config.vm.hostname = "dockerhost#{docker_host}"
+      config.vm.network "private_network", ip: "10.100.199.2#{docker_host}"
+      config.vm.provision :hosts
+      config.vm.provision :ansible do |ansible|
+        ansible.playbook = 'ansible/vagrant_docker_host.yml'
+        ansible.groups   = {'vagrant_dockerhosts' => ["dockerhost#{docker_host}"], 'local' => ['localhost']}
+        ansible.raw_arguments = '--timeout=30'
+        ansible.host_key_checking = false
+      end
+    end
+  end
 
   # Swarm Host
   vagrant.vm.define "dockerswarm01" do |config|
