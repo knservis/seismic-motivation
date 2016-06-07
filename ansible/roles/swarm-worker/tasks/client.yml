@@ -4,7 +4,7 @@
     host: "{{ consul_ip }}"
     port: "{{ consul_port }}"
     
-- name: Run consul client
+- name: Run swarm client
   docker: 
     restart_policy: always
     state: started

@@ -5,7 +5,7 @@
     host: "{{ consul_ip }}"
     port: "{{ consul_port }}"
 
-- name: Run consul manager
+- name: Run swarm manager
   docker: 
     ports:
       - 4000:4000
