@@ -16,3 +16,15 @@
   pip: 
       name: docker-py 
       state: present
+
+- name: Install pyyaml
+  become: true
+  pip: 
+      name: pyyaml 
+      state: present
+
+- name: Install docker-compose
+  become: true
+  pip: 
+      name: docker-compose 
+      state: present      

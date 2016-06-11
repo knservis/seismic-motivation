@@ -1,0 +1,16 @@
+---
+
+- name: Bring up docker service
+  docker_service:
+    docker_host: ":{{swarm_master_port}}"
+    project_name: driven
+    definition:
+      version: '2'
+      services:
+        driven: 
+          image: knservis/driven:tomcat-2.1.4
+          depends_on:
+            - es 
+        es:
+          image: elasticsearch 
+
