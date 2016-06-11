@@ -8,9 +8,11 @@
 - name: Run swarm manager
   docker: 
     ports:
-      - 4000:4000
+      - "4000:4000"
+    expose:
+      - "4000"
     restart_policy: always
     state: started
     image: swarm
     name: swarm-manager
-    command: "manage -H {{ docker_host_ip }}:4000 --replication --advertise {{docker_host_ip }}:4000 consul://{{ consul_ip }}:{{ consul_port }}"
+    command: "manage -H :4000 --replication --advertise {{docker_host_ip }}:4000 consul://{{ consul_ip }}:{{ consul_port }}"
