@@ -14,4 +14,6 @@ OPTIONS="{% if dns_servers is defined %}{% for server in dns_servers %}--dns={{ 
             {{ opt }} \
             {% endfor %}{% endif %}
             -H tcp://{{ docker_host_ip }}:{{ docker_port }} \
-            -H unix:///var/run/docker.sock"
+            -H unix:///var/run/docker.sock \
+            --cluster-store=consul://{{ consul_ip }}:{{ consul_port }} \
+            --cluster-advertise={{ docker_host_ip }}:{{ docker_port }}"

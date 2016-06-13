@@ -6,4 +6,9 @@
   roles:
     - role: docker
     - role: swarm-master
+
+- hosts: dockerhost01
+  become: false
+  remote_user: "{{ user }}"
+  roles:
     - role: driven-service

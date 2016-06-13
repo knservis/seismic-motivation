@@ -4,6 +4,10 @@
   docker_service:
     docker_host: ":{{swarm_master_port}}"
     project_name: driven
+    build: no
+    scale: 
+      driven: 2
+      es: 2
     definition:
       version: '2'
       services:
